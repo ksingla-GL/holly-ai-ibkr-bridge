@@ -1,0 +1,34 @@
+{
+    "ibkr": {
+        "host": "127.0.0.1",
+        "port": 7497,
+        "client_id": 1,
+        "account": "YOUR_PAPER_ACCOUNT_ID"
+    },
+    "alerts": {
+        "csv_path": "data/alerts/holly_alerts.csv",
+        "check_interval": 1,
+        "columns": {
+            "timestamp": "TimeStamp",
+            "symbol": "Symbol",
+            "type": "Type",
+            "description": "Description",
+            "price": "Price",
+            "volume": "Relative Volume"
+        }
+    },
+    "risk": {
+        "max_trades_per_day": 10,
+        "max_capital_per_trade": 1000,
+        "max_daily_loss": 500,
+        "position_size_pct": 2.0,
+        "stop_loss_pct": 2.0,
+        "take_profit_pct": 5.0,
+        "time_based_exit_minutes": 30
+    },
+    "dashboard": {
+        "host": "0.0.0.0",
+        "port": 5000,
+        "debug": true
+    }
+}
