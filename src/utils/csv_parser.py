@@ -1,7 +1,6 @@
 """Holly AI CSV Alert Parser"""
 import pandas as pd
 import os
-from datetime import datetime
 from typing import Dict, List, Optional
 from loguru import logger
 import json
@@ -22,7 +21,7 @@ class HollyAlertParser:
                 return []
                 
             # Read CSV with proper parsing
-            df = pd.read_csv(self.csv_path, parse_dates=[self.columns['timestamp']])
+            df = pd.read_csv(self.csv_path)
             
             # Filter new alerts
             new_alerts = []

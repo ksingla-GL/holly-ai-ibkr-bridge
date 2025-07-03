@@ -1,4 +1,5 @@
-"""Main Trading System"""
+"""Main Trading System - Complete Version"""
+import os
 import asyncio
 import json
 import threading
@@ -6,21 +7,26 @@ from datetime import datetime
 from loguru import logger
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+import time
+import pytz
 
 # Import modules
 from utils.csv_parser import HollyAlertParser
 from core.ibkr_connector import IBKRConnector
-from risk.risk_manager import RiskManager
-from dashboard.app import run_dashboard, update_dashboard_data
 
 class CSVWatcher(FileSystemEventHandler):
     """Watch for CSV file changes"""
     def __init__(self, callback):
         self.callback = callback
+        self.last_modified = 0
         
     def on_modified(self, event):
         if event.src_path.endswith('.csv'):
-            self.callback()
+            # Debounce to avoid multiple calls
+            current_time = time.time()
+            if current_time - self.last_modified > 1:
+                self.last_modified = current_time
+                self.callback()
 
 class TradingSystem:
     def __init__(self):
@@ -31,36 +37,44 @@ class TradingSystem:
         # Initialize components
         self.parser = HollyAlertParser()
         self.ibkr = IBKRConnector()
-        self.risk_manager = RiskManager()
+        # REMOVE: self.risk_manager = RiskManager()
         self.running = False
+        self.process_lock = asyncio.Lock()
+        self.processed_symbols = set()  # ADD THIS - simple position tracking
+        
+        logger.info("Starting Holly AI - IBKR Trading System")
+        logger.warning(f"Trading Mode: {'PAPER' if self.config['ibkr']['port'] == 7497 else 'LIVE'} (Port {self.config['ibkr']['port']})")
         
         # Setup logging
         logger.add("logs/trading_{time}.log", rotation="1 day")
         
     async def start(self):
         """Start trading system"""
-        logger.info("Starting Holly AI - IBKR Trading System")
         
         # Connect to IBKR
         connected = await self.ibkr.connect()
         if not connected:
             logger.error("Failed to connect to IBKR. Exiting.")
             return
-            
+        
+        # Check for account info after connection
+        account_info = await self.ibkr.get_account_info()
+        if not account_info:
+            logger.error("Cannot retrieve account info - check TWS permissions")
+            return
+        logger.info(f"Connected to account with buying power: ${account_info.get('BuyingPower', 0)}")    
+        
         self.running = True
         
-        # Start dashboard in separate thread
-        dashboard_thread = threading.Thread(
-            target=run_dashboard, 
-            args=(self.config,)
-        )
-        dashboard_thread.daemon = True
-        dashboard_thread.start()
+        # Process existing alerts on startup
+        logger.info("Processing initial alerts...")
+        await self.process_alerts()
         
-        # Setup file watcher
+        # Setup file watcher for new alerts
         observer = Observer()
+        event_handler = CSVWatcher(lambda: asyncio.create_task(self.process_alerts_async()))
         observer.schedule(
-            CSVWatcher(self.process_alerts),
+            event_handler,
             path='data/alerts',
             recursive=False
         )
@@ -75,122 +89,102 @@ class TradingSystem:
         except KeyboardInterrupt:
             logger.info("Shutting down...")
         finally:
+            self.running = False
+            # REMOVE price_monitor_task.cancel()
             observer.stop()
             observer.join()
             self.ibkr.disconnect()
             
     async def trading_loop(self):
         """Main trading loop"""
-        # Update dashboard data
-        self.update_dashboard()
+        # Just keep running - file watcher handles new alerts
+        pass
         
-        # Check for exit signals
-        await self.check_exit_signals()
+    async def process_alerts_async(self):
+        """Async wrapper for process_alerts"""
+        async with self.process_lock:
+            await self.process_alerts()
         
-        # Process new alerts
-        self.process_alerts()
-        
-    def process_alerts(self):
+    async def process_alerts(self):
         """Process new alerts from CSV"""
-        alerts = self.parser.parse_alerts()
-        
-        for alert in alerts:
-            # Check risk rules
-            if not self.risk_manager.check_trade_allowed(alert):
-                continue
+        try:
+            alerts = self.parser.parse_alerts() 
+            for alert in alerts:
+                # Check if market is open
+                if not self.is_market_open():
+                    logger.info("Market closed, skipping alert")
+                    continue
+                    
+                # Place order
+                await self.place_trade(alert)
                 
-            # Place order
-            asyncio.create_task(self.place_trade(alert))
+        except Exception as e:
+            logger.error(f"Error processing alerts: {e}")
             
     async def place_trade(self, alert):
         """Place trade based on alert"""
         logger.info(f"Processing alert for {alert['symbol']}")
         
-        # Place order
-        trade = await self.ibkr.place_order(alert)
+        # Simple duplicate check
+        if alert['symbol'] in self.processed_symbols:
+            logger.warning(f"Already processed {alert['symbol']}")
+            return
         
-        if trade:
-            # Calculate risk levels
-            stop_loss = self.risk_manager.calculate_stop_loss(alert['price'])
-            take_profit = self.risk_manager.calculate_take_profit(alert['price'])
+        try:
+            # Calculate simple position size
+            position_size = int(self.config['risk']['max_capital_per_trade'] / alert['price'])
+            position_size = max(1, position_size)
             
-            # Track position
-            trade_data = {
-                'symbol': alert['symbol'],
-                'entry_price': alert['price'],
-                'quantity': trade.order.totalQuantity,
-                'stop_loss': stop_loss,
-                'take_profit': take_profit,
-                'entry_time': datetime.now(),
-                'trade': trade,
-                'timestamp': datetime.now()
-            }
+            # Simple stop/target calculation
+            stop_loss = round(alert['price'] * 0.98, 2)  # 2% stop
+            take_profit = round(alert['price'] * 1.05, 2)  # 5% target
             
-            self.risk_manager.update_position(alert['symbol'], trade_data)
-            logger.info(f"Opened position: {alert['symbol']} SL: {stop_loss} TP: {take_profit}")
+            # Place bracket order
+            trade = await self.ibkr.place_bracket_order(
+                symbol=alert['symbol'],
+                quantity=position_size,
+                entry_price=alert['price'],
+                stop_loss=stop_loss,
+                take_profit=take_profit
+            )
             
-    async def check_exit_signals(self):
-        """Check for exit conditions"""
-        positions = list(self.risk_manager.active_positions.items())
-        
-        for symbol, position in positions:
-            # Get current price (simplified - in production use real-time data)
-            current_price = position['entry_price']  # Placeholder
+            if trade:
+                self.processed_symbols.add(alert['symbol'])
+                logger.info(f"Opened position: {alert['symbol']} x{position_size} @ ${alert['price']:.2f}")
             
-            # Check stop loss
-            if current_price <= position['stop_loss']:
-                await self.close_position(symbol, current_price, "Stop Loss")
-                
-            # Check take profit
-            elif current_price >= position['take_profit']:
-                await self.close_position(symbol, current_price, "Take Profit")
-                
-            # Check time-based exit
-            elif self.risk_manager.should_exit_time_based(position['entry_time']):
-                await self.close_position(symbol, current_price, "Time Exit")
-                
-    async def close_position(self, symbol: str, price: float, reason: str):
-        """Close position"""
-        logger.info(f"Closing {symbol} position - Reason: {reason}")
+        except Exception as e:
+            logger.error(f"Error placing trade for {alert['symbol']}: {e}")
+            
+    def is_market_open(self):
+        """Check if US market is open (timezone aware)"""
         
-        # Place closing order (simplified)
-        # In production, implement proper closing logic
+        # Get current time in US Eastern
+        eastern = pytz.timezone('US/Eastern')
+        now_et = datetime.now(eastern)
         
-        # Update risk manager
-        self.risk_manager.remove_position(symbol, price)
+        # Check if weekday (Mon=0, Fri=4)
+        if now_et.weekday() > 4:  # Weekend
+            return False
         
-    def update_dashboard(self):
-        """Update dashboard with current data"""
-        # Get account info
-        account_summary = self.ibkr.get_account_summary()
-        update_dashboard_data('account_info', {
-            'balance': account_summary.get('TotalCashValue', 0),
-            'buying_power': account_summary.get('BuyingPower', 0),
-            'daily_pnl': self.risk_manager.daily_pnl
-        })
+        # Market hours: 9:30 AM - 4:00 PM ET
+        market_open = now_et.replace(hour=9, minute=30, second=0, microsecond=0)
+        market_close = now_et.replace(hour=16, minute=0, second=0, microsecond=0)
         
-        # Update risk metrics
-        update_dashboard_data('risk_metrics', {
-            'trades_today': len(self.risk_manager.daily_trades),
-            'max_trades': self.config['risk']['max_trades_per_day'],
-            'daily_loss': abs(min(0, self.risk_manager.daily_pnl)),
-            'max_loss': self.config['risk']['max_daily_loss'],
-            'active_positions': len(self.risk_manager.active_positions)
-        })
+        is_open = market_open <= now_et <= market_close
         
-        # Update active trades
-        active_trades = []
-        for symbol, position in self.risk_manager.active_positions.items():
-            duration = (datetime.now() - position['entry_time']).seconds // 60
-            active_trades.append({
-                'symbol': symbol,
-                'entry_price': position['entry_price'],
-                'current_price': position['entry_price'],  # Placeholder
-                'pnl': 0,  # Calculate based on current price
-                'duration': f"{duration}m"
-            })
-        update_dashboard_data('active_trades', active_trades)
+        if not is_open:
+            logger.info(f"Market closed. Current ET time: {now_et.strftime('%H:%M:%S')}")
+        
+        return is_open
 
 if __name__ == "__main__":
+    import os
+    
+    # Ensure required directories exist
+    os.makedirs("data/alerts", exist_ok=True)
+    os.makedirs("data/trades", exist_ok=True)
+    os.makedirs("logs", exist_ok=True)
+    
+    # Run trading system
     system = TradingSystem()
     asyncio.run(system.start())
