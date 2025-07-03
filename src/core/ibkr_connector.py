@@ -21,7 +21,7 @@ class IBKRConnector:
     async def connect(self) -> bool:
         """Connect to IBKR TWS/Gateway"""
         try:
-            # SAFETY CHECK
+            # SAFETY CHECK - Keep for paper trading only
             if self.config['ibkr']['port'] == 7496:
                 logger.error("BLOCKED: Port 7496 is for LIVE trading! Use 7497 for paper trading.")
                 return False
@@ -63,13 +63,13 @@ class IBKRConnector:
             
             # Create bracket order using ib_insync's bracketOrder method
             bracket = self.ib.bracketOrder(
-            action='BUY',
-            quantity=quantity,
-            limitPrice=entry_price,
-            stopLossPrice=round(stop_loss, 2),  # Ensure 2 decimals
-            takeProfitPrice=round(take_profit, 2),  # Ensure 2 decimals
-            #outsideRth=True
-        )
+                action='BUY',
+                quantity=quantity,
+                limitPrice=entry_price,
+                stopLossPrice=round(stop_loss, 2),  # Ensure 2 decimals
+                takeProfitPrice=round(take_profit, 2),  # Ensure 2 decimals
+                #outsideRth=True
+            )
             
             # Place all orders with parent transmitted last
             trades = []
@@ -89,7 +89,7 @@ class IBKRConnector:
                     'trade': trade
                 }
                 
-            logger.info(f"Placed bracket order for {symbol}: Entry @ market, SL @ ${stop_loss:.2f}, TP @ ${take_profit:.2f}")
+            logger.info(f"Placed bracket order for {symbol}: Entry @ ${entry_price:.2f}, SL @ ${stop_loss:.2f}, TP @ ${take_profit:.2f}")
             
             # Return the parent trade
             return trades[0] if trades else None
@@ -304,7 +304,7 @@ class IBKRConnector:
     def on_error(self, reqId: int, errorCode: int, errorString: str, contract: Contract):
         """Handle errors"""
         # Ignore common non-error codes
-        if errorCode in [2104, 2106, 2107, 2108, 2158]:  # Market data farm messages
+        if errorCode in [2104, 2106, 2107, 2108, 2158, 2151]:  # Market data farm messages + positions not ready
             return
         logger.error(f"Error {errorCode}: {errorString}")
     

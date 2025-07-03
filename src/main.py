@@ -37,16 +37,27 @@ class TradingSystem:
         # Initialize components
         self.parser = HollyAlertParser()
         self.ibkr = IBKRConnector()
-        # REMOVE: self.risk_manager = RiskManager()
         self.running = False
         self.process_lock = asyncio.Lock()
-        self.processed_symbols = set()  # ADD THIS - simple position tracking
+        self.processed_symbols = set()  # Simple position tracking
+        
+        # Daily trade tracking
+        self.daily_trades = 0
+        self.last_trade_date = None
         
         logger.info("Starting Holly AI - IBKR Trading System")
         logger.warning(f"Trading Mode: {'PAPER' if self.config['ibkr']['port'] == 7497 else 'LIVE'} (Port {self.config['ibkr']['port']})")
         
         # Setup logging
         logger.add("logs/trading_{time}.log", rotation="1 day")
+        
+    def check_daily_limits(self):
+        """Reset daily counter if new day"""
+        today = datetime.now().date()
+        if self.last_trade_date != today:
+            self.daily_trades = 0
+            self.last_trade_date = today
+            self.processed_symbols.clear()  # Reset for new day
         
     async def start(self):
         """Start trading system"""
@@ -90,7 +101,6 @@ class TradingSystem:
             logger.info("Shutting down...")
         finally:
             self.running = False
-            # REMOVE price_monitor_task.cancel()
             observer.stop()
             observer.join()
             self.ibkr.disconnect()
@@ -125,15 +135,32 @@ class TradingSystem:
         """Place trade based on alert"""
         logger.info(f"Processing alert for {alert['symbol']}")
         
+        # Check daily limits
+        self.check_daily_limits()
+        
+        if self.daily_trades >= self.config['risk'].get('max_trades_per_day', 10):
+            logger.warning(f"Daily trade limit reached ({self.daily_trades})")
+            return
+        
         # Simple duplicate check
         if alert['symbol'] in self.processed_symbols:
             logger.warning(f"Already processed {alert['symbol']}")
             return
         
         try:
+            # Get account info for buying power check
+            account_info = await self.ibkr.get_account_info()
+            buying_power = float(account_info.get('BuyingPower', 0))
+            
             # Calculate simple position size
             position_size = int(self.config['risk']['max_capital_per_trade'] / alert['price'])
             position_size = max(1, position_size)
+            
+            # Check if we have enough buying power
+            required_capital = position_size * alert['price']
+            if buying_power < required_capital:
+                logger.warning(f"Insufficient buying power for {alert['symbol']}. Required: ${required_capital:.2f}, Available: ${buying_power:.2f}")
+                return
             
             # Simple stop/target calculation
             stop_loss = round(alert['price'] * 0.98, 2)  # 2% stop
@@ -150,8 +177,23 @@ class TradingSystem:
             
             if trade:
                 self.processed_symbols.add(alert['symbol'])
-                logger.info(f"Opened position: {alert['symbol']} x{position_size} @ ${alert['price']:.2f}")
-            
+                self.daily_trades += 1  
+                logger.info(f"Opened position: {alert['symbol']} x{position_size} @ ${alert['price']:.2f} (Trade #{self.daily_trades} today)")
+                
+                # Log trade to file
+                self.log_trade({
+                    'timestamp': datetime.now().isoformat(),
+                    'symbol': alert['symbol'],
+                    'action': 'BUY',
+                    'quantity': position_size,
+                    'entry_price': alert['price'],
+                    'stop_loss': stop_loss,
+                    'take_profit': take_profit,
+                    'trade_number': self.daily_trades,
+                    'alert_type': alert['type'],
+                    'resistance': alert.get('resistance')
+                })
+                
         except Exception as e:
             logger.error(f"Error placing trade for {alert['symbol']}: {e}")
             
@@ -176,6 +218,30 @@ class TradingSystem:
             logger.info(f"Market closed. Current ET time: {now_et.strftime('%H:%M:%S')}")
         
         return is_open
+    
+    def log_trade(self, trade_data: dict):
+        """Log trade to JSON file"""
+        try:
+            # Create filename with today's date
+            log_file = f"data/trades/trades_{datetime.now().strftime('%Y%m%d')}.json"
+            
+            # Load existing trades if file exists
+            trades = []
+            if os.path.exists(log_file):
+                with open(log_file, 'r') as f:
+                    trades = json.load(f)
+            
+            # Add new trade
+            trades.append(trade_data)
+            
+            # Save updated trades
+            with open(log_file, 'w') as f:
+                json.dump(trades, f, indent=2)
+                
+            logger.info(f"Trade logged to {log_file}")
+            
+        except Exception as e:
+            logger.error(f"Error logging trade: {e}")
 
 if __name__ == "__main__":
     import os
