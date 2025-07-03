@@ -1,4 +1,3 @@
-"""Main Trading System - Complete Version"""
 import os
 import asyncio
 import json

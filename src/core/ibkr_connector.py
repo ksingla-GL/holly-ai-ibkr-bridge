@@ -1,4 +1,4 @@
-"""IBKR TWS API Connector - Fixed for Event Loop Issues"""
+
 from ib_insync import *
 from loguru import logger
 import json
@@ -7,7 +7,7 @@ import asyncio
 from datetime import datetime
 
 # Configure ib_insync to work with existing event loops
-util.startLoop()  # This prevents the event loop conflict
+util.startLoop()
 
 class IBKRConnector:
     def __init__(self, config_path: str = "config/config.json"):
