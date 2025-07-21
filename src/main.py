@@ -117,6 +117,7 @@ class TradingSystem:
     async def process_alerts(self):
         """Process new alerts from CSV"""
         try:
+            self.parser.debug_file_check()
             alerts = self.parser.parse_alerts() 
             for alert in alerts:
                 # Check if market is open

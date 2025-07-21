@@ -6,7 +6,7 @@
         "account": "DU013"
     },
     "alerts": {
-        "csv_path": "data/alerts/holly_alerts.csv",
+        "csv_path": "data/alerts/",
         "check_interval": 1,
         "columns": {
             "timestamp": "TimeStamp",

@@ -22,6 +22,17 @@ class HollyAlertParser:
         self.columns = self.config['alerts']['columns']
         self.current_file = None
         self.last_file_check = None
+    def debug_file_check(self):
+        today = datetime.now().strftime("%Y%m%d")
+        expected_file = f"{self.file_prefix}.{self.strategy_name}.{today}.csv"
+        
+        print(f"Looking for: '{expected_file}'")
+        
+        # List all files in the directory
+        directory = "data/alerts/"
+        print(f"\nFiles in {directory}:")
+        for file in os.listdir(directory):
+            print(f"  '{file}' - Match: {file == expected_file}")
         
     def get_todays_csv_file(self) -> Optional[str]:
         """Get today's CSV file path"""
