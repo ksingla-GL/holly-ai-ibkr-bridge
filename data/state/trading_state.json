@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "last_save": "2025-08-04T20:18:04.402179",
+  "processed_alerts": {
+    "2025-08-04": [
+      "45839_AAPL"
+    ]
+  },
+  "open_positions": {
+    "AAPL": {
+      "shares": 14.0,
+      "entry_price": 206.35145055,
+      "entry_time": "2025-08-04T20:18:04.401181",
+      "recovered": true,
+      "order_id": -1,
+      "stop_price": 204.28793604450001
+    }
+  },
+  "pending_exits": {
+    "AAPL": {
+      "exit_time": "2025-08-04T20:28:04.401181",
+      "scheduled_at": "2025-08-04T20:18:04.401181"
+    }
+  },
+  "daily_stats": {},
+  "system_state": {
+    "last_startup": null,
+    "last_shutdown": null,
+    "total_runtime_seconds": 0
+  }
+}

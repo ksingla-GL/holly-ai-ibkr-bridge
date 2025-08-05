@@ -1,0 +1,372 @@
+2025-07-31 22:05:36,339 - __main__ - INFO - ============================================================
+2025-07-31 22:05:36,340 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-07-31 22:05:36,340 - __main__ - INFO - Version: 2.0.0
+2025-07-31 22:05:36,340 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-07-31 22:05:36,340 - __main__ - INFO - ============================================================
+2025-07-31 22:05:36,542 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-07-31 22:05:36,542 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-07-31 22:05:36,959 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-07-31 22:05:36,960 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-07-31 22:05:37,538 - src.core.trading_engine - INFO - Account value: $100,000.00
+2025-07-31 22:05:37,539 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-07-31 22:05:37,539 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-07-31 22:05:37,542 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250731.csv
+2025-07-31 22:05:37,542 - src.core.trading_engine - INFO - All monitoring threads started
+2025-07-31 22:05:37,543 - __main__ - INFO - Trading engine started successfully
+2025-07-31 22:05:37,565 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250731.csv
+2025-07-31 22:05:37,565 - src.core.trading_engine - INFO - Processing alert for AAPL at $214.2
+2025-07-31 22:05:38,091 - src.core.risk_manager - INFO - Account value updated: $100,000.00
+2025-07-31 22:05:38,092 - src.core.risk_manager - INFO - Position sizing: $3000.00 / $214.20 = 14 shares
+2025-07-31 22:05:38,092 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-07-31 22:06:10,370 - src.core.order_manager - WARNING - Order timed out for AAPL
+2025-07-31 22:10:37,557 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:15:37,561 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:20:37,567 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:25:37,573 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:30:37,581 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:35:37,595 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:40:37,598 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:45:37,608 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:50:37,613 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 22:55:37,615 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:00:37,623 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:05:37,632 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:10:37,635 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:15:37,639 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:20:37,650 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:28:09,873 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:33:09,881 - src.core.trading_engine - INFO - Running position sync...
+2025-07-31 23:37:01,792 - __main__ - INFO - Shutdown signal received
+2025-07-31 23:37:01,793 - __main__ - INFO - Initiating graceful shutdown...
+2025-07-31 23:37:01,793 - src.core.trading_engine - INFO - Stopping trading engine...
+2025-07-31 23:37:01,797 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-07-31 23:37:08,596 - src.core.trading_engine - INFO - Trading engine stopped
+2025-07-31 23:37:08,596 - __main__ - INFO - Shutdown complete
+2025-07-31 23:37:08,603 - __main__ - INFO - Engine stopped, shutting down
+2025-07-31 23:52:40,014 - __main__ - INFO - ============================================================
+2025-07-31 23:52:40,015 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-07-31 23:52:40,015 - __main__ - INFO - Version: 2.0.0
+2025-07-31 23:52:40,015 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-07-31 23:52:40,015 - __main__ - INFO - ============================================================
+2025-07-31 23:52:40,218 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-07-31 23:52:40,218 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-07-31 23:52:40,335 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-07-31 23:52:40,335 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-07-31 23:52:40,904 - src.core.trading_engine - INFO - Account value: $99,986.12
+2025-07-31 23:52:40,904 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-07-31 23:52:40,905 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-07-31 23:52:40,905 - src.core.position_tracker - WARNING - UNTRACKED POSITION: AAPL - 14.0 shares in IBKR
+2025-07-31 23:52:40,905 - src.core.position_tracker - ERROR - Error syncing positions: name 'timedelta' is not defined
+2025-07-31 23:52:40,907 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250731.csv
+2025-07-31 23:52:40,907 - src.core.trading_engine - INFO - Time exit monitor started
+2025-07-31 23:52:40,908 - src.core.trading_engine - INFO - All monitoring threads started
+2025-07-31 23:52:40,908 - __main__ - INFO - Trading engine started successfully
+2025-07-31 23:52:40,911 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250731.csv
+2025-07-31 23:57:40,912 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 00:00:00,744 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:00,744 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:01,749 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:02,762 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:03,763 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:04,768 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:05,782 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:06,786 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:07,795 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:08,806 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:09,811 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:10,821 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:11,828 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:12,838 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:13,844 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:14,858 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:15,862 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:16,866 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:17,868 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:18,880 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:19,893 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:20,904 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:21,915 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:22,927 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:23,933 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:24,939 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:25,949 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:26,964 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:27,977 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:28,993 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:30,003 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:31,016 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:32,029 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:33,041 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:34,054 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:35,067 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:36,078 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:37,094 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:38,107 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:39,123 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:40,132 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:41,143 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:42,159 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:43,161 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:44,177 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:45,181 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:46,195 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:47,208 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:48,220 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:49,231 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:50,243 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:51,256 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:52,272 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:53,281 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:54,293 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:55,305 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:56,317 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:57,329 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:58,342 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:00:59,355 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:00,368 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:01,379 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:02,385 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:03,397 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:04,404 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:05,414 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:06,430 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:07,441 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:08,447 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:09,450 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:10,461 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:11,474 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:12,475 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:13,487 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:14,494 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:15,501 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:16,505 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:17,509 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:18,519 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:19,532 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:20,541 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:21,551 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:22,558 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:23,570 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:24,574 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:25,576 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:26,592 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:27,604 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:28,618 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:29,623 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:30,637 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:31,652 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:32,661 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:33,668 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:34,684 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:35,685 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:36,690 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:37,704 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:38,708 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:39,725 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:40,740 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:41,745 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:42,757 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:43,771 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:44,774 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:45,787 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:46,802 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:47,814 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:48,823 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:49,829 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:50,841 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:51,862 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:52,866 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:53,874 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:54,882 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:55,895 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:56,905 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:57,915 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:58,926 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:01:59,934 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:00,940 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:01,951 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:02,966 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:03,975 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:04,989 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:05,999 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:07,012 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:08,026 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:09,039 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:10,047 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:11,059 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:12,073 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:13,085 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:14,100 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:15,103 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:16,111 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:17,120 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:18,125 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:19,129 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:20,135 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:21,148 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:22,160 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:23,174 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:24,182 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:25,191 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:26,200 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:27,209 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:28,213 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:29,226 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:30,234 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:31,245 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:32,253 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:33,264 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:34,276 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:35,286 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:36,301 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:37,310 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:38,316 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:39,331 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:40,338 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:40,917 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 00:02:41,354 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:42,369 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:43,384 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:44,386 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:45,402 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:46,408 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:47,418 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:48,424 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:49,439 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:50,451 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:51,465 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:52,475 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:53,490 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:54,498 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:55,504 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:56,514 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:57,521 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:58,533 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:02:59,541 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:00,551 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:01,564 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:02,572 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:03,580 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:04,587 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:05,599 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:06,611 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:07,619 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:08,626 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:09,639 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:10,652 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:11,654 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:12,665 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:13,678 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:14,690 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:15,702 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:16,714 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:17,725 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:18,736 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:19,747 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:20,759 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:21,775 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:22,786 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:23,789 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:24,790 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:25,805 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:26,817 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:27,830 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:28,843 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:29,852 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:30,858 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:31,873 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:32,885 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:33,893 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:34,908 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:35,918 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:36,932 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:37,940 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:38,954 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:39,966 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:40,974 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:41,980 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:42,990 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:43,998 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:45,010 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:46,025 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:47,041 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:48,054 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:49,067 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:50,081 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:51,087 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:52,088 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:53,103 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:54,110 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:55,121 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:56,131 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:57,146 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:58,157 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:03:59,158 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:00,169 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:01,183 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:02,198 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:03,213 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:04,219 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:05,232 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:06,245 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:07,256 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:08,265 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:09,278 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:10,281 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:11,295 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:12,327 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:13,350 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:14,359 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:15,373 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:16,384 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:17,400 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:18,412 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:19,424 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:20,436 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:21,445 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:22,452 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:23,458 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:24,464 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:25,467 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:26,481 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:27,489 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:28,503 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:29,518 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:30,528 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:31,538 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:32,554 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:33,580 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:34,595 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:35,604 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:36,611 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:37,626 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:38,627 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:39,637 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:40,640 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:41,651 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:42,661 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:43,670 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:44,682 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:45,695 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:46,702 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:47,707 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:48,719 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:49,730 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:50,738 - src.utils.csv_parser - WARNING - CSV file not found: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:04:51,219 - __main__ - INFO - Shutdown signal received
+2025-08-01 00:04:51,219 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-01 00:04:51,219 - src.core.trading_engine - INFO - Stopping trading engine...
+2025-08-01 00:04:51,219 - src.core.trading_engine - INFO - Closing position: AAPL
+2025-08-01 00:04:51,220 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 00:04:51,221 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-08-01 00:04:51,221 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 00:04:51,222 - src.core.ibkr_connector - ERROR - Error 2103: Market data farm connection is broken:hfarm
+2025-08-01 00:04:51,490 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 24 status: PreSubmitted, filled: 0.0
+2025-08-01 00:04:51,724 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $207.84
+2025-08-01 00:04:51,725 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 24 status: Filled, filled: 14.0
+2025-08-01 00:04:53,236 - src.core.order_manager - INFO - Time exit order placed for AAPL
+2025-08-01 00:04:53,236 - src.core.position_tracker - INFO - Position removed: AAPL
+2025-08-01 00:04:53,240 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-01 00:04:58,245 - src.core.trading_engine - INFO - Trading engine stopped
+2025-08-01 00:04:58,245 - __main__ - INFO - Shutdown complete
+2025-08-01 00:04:58,252 - __main__ - INFO - Engine stopped, shutting down

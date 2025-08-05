@@ -1,29 +1,53 @@
 {
+    "system": {
+        "timezone": "Asia/Kolkata",
+        "market_timezone": "US/Eastern",
+        "market_hours": {
+            "enabled": true,
+            "start": "09:30",
+            "end": "16:00"
+        }
+    },
+    
+    "alerts": {
+        "csv_path": "data/alerts/",
+        "strategy_name": "Breaking out on Volume",
+        "file_prefix": "alertlogging",
+        "check_interval": 1,
+        "columns": {
+            "timestamp": "TimeStamp",
+      "symbol": "Symbol",
+      "type": "Type",
+      "description": "Description",
+      "price": "Price",
+      "volume": "Relative Volume"
+        }
+    },
+    
+    "risk_management": {
+        "max_daily_trades": 30,
+        "max_concurrent_positions": 3,
+        "position_size_pct": 3.0,
+        "stop_loss_pct": 1.0,
+        "time_exit_minutes": 10,
+        "state_file": "data/state/risk_state.json"
+    },
+    
     "ibkr": {
         "host": "127.0.0.1",
         "port": 7497,
         "client_id": 1,
-        "account": "DU013"
+        "timeout": 30
     },
-    "alerts": {
-        "csv_path": "data/alerts/",
-        "check_interval": 1,
-        "columns": {
-            "timestamp": "TimeStamp",
-            "symbol": "Symbol",
-            "type": "Type",
-            "description": "Description",
-            "price": "Price",
-            "volume": "Relative Volume"
-        }
+    
+    "state": {
+        "state_file": "data/state/trading_state.json",
+        "backup_file": "data/state/trading_state.backup.json",
+        "cleanup_days": 30
     },
-    "risk": {
-        "max_trades_per_day": 10,
-        "max_capital_per_trade": 1000,
-        "max_daily_loss": 500,
-        "position_size_pct": 2.0,
-        "stop_loss_pct": 2.0,
-        "take_profit_pct": 5.0,
-        "time_based_exit_minutes": 30
+    
+    "logging": {
+        "level": "INFO",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     }
 }

@@ -1,0 +1,190 @@
+2025-08-01 00:12:30,923 - __main__ - INFO - ============================================================
+2025-08-01 00:12:30,924 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-01 00:12:30,924 - __main__ - INFO - Version: 2.0.0
+2025-08-01 00:12:30,924 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-08-01 00:12:30,924 - __main__ - INFO - ============================================================
+2025-08-01 00:12:31,184 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-08-01 00:12:31,184 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-08-01 00:12:31,304 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-08-01 00:12:31,304 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-08-01 00:12:31,884 - src.core.trading_engine - INFO - Account value: $99,982.32
+2025-08-01 00:12:31,885 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-08-01 00:12:31,885 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-08-01 00:12:31,887 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:12:31,887 - src.core.trading_engine - INFO - Time exit monitor started
+2025-08-01 00:12:31,888 - src.core.trading_engine - INFO - All monitoring threads started
+2025-08-01 00:12:31,888 - __main__ - INFO - Trading engine started successfully
+2025-08-01 00:12:31,891 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 00:12:31,892 - src.core.trading_engine - INFO - Processing alert for AAPL at $214.2
+2025-08-01 00:12:32,407 - src.core.risk_manager - INFO - Account value updated: $99,982.32
+2025-08-01 00:12:32,407 - src.core.risk_manager - INFO - Position sizing: $2999.47 / $214.20 = 14 shares
+2025-08-01 00:12:32,408 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-08-01 00:13:04,681 - src.core.order_manager - WARNING - Order timed out for AAPL
+2025-08-01 00:17:31,896 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 20:21:31,675 - __main__ - INFO - ============================================================
+2025-08-01 20:21:31,676 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-01 20:21:31,676 - __main__ - INFO - Version: 2.0.0
+2025-08-01 20:21:31,677 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-08-01 20:21:31,678 - __main__ - INFO - ============================================================
+2025-08-01 20:21:32,028 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-08-01 20:21:32,028 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-08-01 20:21:32,502 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-08-01 20:21:32,502 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-08-01 20:21:33,896 - src.core.trading_engine - INFO - Account value: $100,000.00
+2025-08-01 20:21:33,896 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-08-01 20:21:33,896 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-08-01 20:21:33,897 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 20:21:33,899 - src.core.trading_engine - INFO - Time exit monitor started
+2025-08-01 20:21:33,903 - src.core.trading_engine - INFO - All monitoring threads started
+2025-08-01 20:21:33,903 - __main__ - INFO - Trading engine started successfully
+2025-08-01 20:21:33,926 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 20:21:33,926 - src.core.trading_engine - INFO - Processing alert for AAPL at $214.2
+2025-08-01 20:21:34,442 - src.core.risk_manager - INFO - Account value updated: $100,000.00
+2025-08-01 20:21:34,443 - src.core.risk_manager - INFO - Position sizing: $3000.00 / $214.20 = 14 shares
+2025-08-01 20:21:34,443 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-08-01 20:22:06,763 - src.core.order_manager - WARNING - Order timed out for AAPL
+2025-08-01 20:26:33,917 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 20:29:24,920 - __main__ - INFO - Shutdown signal received
+2025-08-01 20:29:24,921 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-01 20:29:24,921 - src.core.trading_engine - INFO - Stopping trading engine...
+2025-08-01 20:29:24,925 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-01 20:29:34,682 - src.core.trading_engine - INFO - Trading engine stopped
+2025-08-01 20:29:34,682 - __main__ - INFO - Shutdown complete
+2025-08-01 20:29:34,689 - __main__ - INFO - Engine stopped, shutting down
+2025-08-01 20:43:46,661 - __main__ - INFO - ============================================================
+2025-08-01 20:43:46,661 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-01 20:43:46,661 - __main__ - INFO - Version: 2.0.0
+2025-08-01 20:43:46,661 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-08-01 20:43:46,662 - __main__ - INFO - ============================================================
+2025-08-01 20:43:46,784 - src.core.state_manager - INFO - State loaded from data\state\trading_state.json
+2025-08-01 20:43:46,784 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-08-01 20:43:47,096 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-08-01 20:43:47,096 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-08-01 20:43:47,760 - src.core.trading_engine - INFO - Account value: $99,983.32
+2025-08-01 20:43:47,760 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-08-01 20:43:47,760 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-08-01 20:43:47,762 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 20:43:47,763 - src.core.trading_engine - INFO - Time exit monitor started
+2025-08-01 20:43:47,764 - src.core.trading_engine - INFO - All monitoring threads started
+2025-08-01 20:43:47,764 - __main__ - INFO - Trading engine started successfully
+2025-08-01 20:48:47,777 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 20:53:47,789 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 20:58:22,027 - __main__ - INFO - Shutdown signal received
+2025-08-01 20:58:22,027 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-01 20:58:22,027 - src.core.trading_engine - INFO - Stopping trading engine...
+2025-08-01 20:58:22,030 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-01 20:58:29,165 - src.core.trading_engine - INFO - Trading engine stopped
+2025-08-01 20:58:29,165 - __main__ - INFO - Shutdown complete
+2025-08-01 20:58:29,166 - __main__ - INFO - Engine stopped, shutting down
+2025-08-01 21:02:49,226 - __main__ - INFO - ============================================================
+2025-08-01 21:02:49,227 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-01 21:02:49,227 - __main__ - INFO - Version: 2.0.0
+2025-08-01 21:02:49,227 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-08-01 21:02:49,227 - __main__ - INFO - ============================================================
+2025-08-01 21:02:49,357 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-08-01 21:02:49,357 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-08-01 21:02:49,470 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-08-01 21:02:49,471 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-08-01 21:02:50,066 - src.core.trading_engine - INFO - Account value: $99,984.58
+2025-08-01 21:02:50,067 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-08-01 21:02:50,067 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-08-01 21:02:50,068 - src.core.position_tracker - WARNING - UNTRACKED POSITION: AAPL - 14.0 shares
+2025-08-01 21:02:50,069 - src.core.position_tracker - INFO - Position added: AAPL
+2025-08-01 21:02:50,069 - src.core.position_tracker - INFO - Exit scheduled for AAPL at 21:12:50
+2025-08-01 21:02:50,070 - src.core.trading_engine - INFO - Rescheduling exit for AAPL at 2025-08-01 21:12:50.069369
+2025-08-01 21:02:50,070 - src.core.position_tracker - INFO - Exit scheduled for AAPL at 21:12:50
+2025-08-01 21:02:50,072 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 21:02:50,072 - src.core.trading_engine - INFO - Time exit monitor started
+2025-08-01 21:02:50,073 - src.core.trading_engine - INFO - All monitoring threads started
+2025-08-01 21:02:50,073 - __main__ - INFO - Trading engine started successfully
+2025-08-01 21:02:50,076 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 21:07:50,080 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 21:12:50,090 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 21:12:51,070 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 21:12:51,070 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 21:12:51,071 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 21:12:51,072 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-08-01 21:12:51,073 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 21:12:53,086 - src.core.order_manager - ERROR - Failed to place time exit for AAPL
+2025-08-01 21:12:58,093 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 21:12:58,093 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 21:12:58,094 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 21:12:58,095 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 21:13:00,109 - src.core.order_manager - ERROR - Failed to place time exit for AAPL
+2025-08-01 21:13:05,120 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 21:13:05,120 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 21:13:05,120 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 21:13:05,121 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 21:13:07,133 - src.core.order_manager - ERROR - Failed to place time exit for AAPL
+2025-08-01 21:13:12,143 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 21:13:12,144 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 21:13:12,144 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 21:13:12,146 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 21:13:14,152 - src.core.order_manager - ERROR - Failed to place time exit for AAPL
+2025-08-01 21:13:16,616 - __main__ - INFO - Shutdown signal received
+2025-08-01 21:13:16,616 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-01 21:13:16,617 - src.core.trading_engine - INFO - Stopping trading engine...
+2025-08-01 21:13:16,617 - src.core.trading_engine - INFO - Closing position: AAPL
+2025-08-01 21:13:16,617 - src.core.order_manager - INFO - Executing time exit for AAPL: selling 14.0 shares
+2025-08-01 21:13:16,618 - src.core.ibkr_connector - INFO - Placed closing order for AAPL x14.0
+2025-08-01 21:13:16,625 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 8 status: PreSubmitted, filled: 0.0
+2025-08-01 21:13:16,626 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $203.34
+2025-08-01 21:13:16,626 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 8 status: Filled, filled: 14.0
+2025-08-01 21:13:16,787 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 9 status: PreSubmitted, filled: 0.0
+2025-08-01 21:13:16,943 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 10 status: PreSubmitted, filled: 0.0
+2025-08-01 21:13:17,023 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $203.32
+2025-08-01 21:13:17,024 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 9 status: Filled, filled: 14.0
+2025-08-01 21:13:17,026 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 11 status: PreSubmitted, filled: 0.0
+2025-08-01 21:13:17,111 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 12 status: PreSubmitted, filled: 0.0
+2025-08-01 21:13:17,171 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $203.32
+2025-08-01 21:13:17,172 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 10 status: Filled, filled: 14.0
+2025-08-01 21:13:17,244 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $203.32
+2025-08-01 21:13:17,245 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 11 status: Filled, filled: 14.0
+2025-08-01 21:13:17,337 - src.core.ibkr_connector - INFO - FILL EVENT: AAPL SLD 14.0 @ $203.32
+2025-08-01 21:13:17,338 - src.core.ibkr_connector - INFO - ORDER EVENT: Order 12 status: Filled, filled: 14.0
+2025-08-01 21:13:18,631 - src.core.order_manager - INFO - Time exit order placed for AAPL
+2025-08-01 21:13:18,631 - src.core.position_tracker - INFO - Position removed: AAPL
+2025-08-01 21:13:18,635 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-01 21:13:24,172 - src.core.trading_engine - INFO - Trading engine stopped
+2025-08-01 21:13:24,173 - __main__ - INFO - Shutdown complete
+2025-08-01 21:13:24,173 - __main__ - INFO - Engine stopped, shutting down
+2025-08-01 22:09:45,425 - __main__ - INFO - ============================================================
+2025-08-01 22:09:45,425 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-01 22:09:45,425 - __main__ - INFO - Version: 2.0.0
+2025-08-01 22:09:45,425 - __main__ - INFO - Timezone: Asia/Kolkata
+2025-08-01 22:09:45,426 - __main__ - INFO - ============================================================
+2025-08-01 22:09:45,585 - src.core.state_manager - INFO - No previous state found, starting fresh
+2025-08-01 22:09:45,585 - src.core.trading_engine - INFO - Connecting to IBKR...
+2025-08-01 22:09:45,699 - src.core.ibkr_connector - INFO - Connected to IBKR TWS on 127.0.0.1:7497
+2025-08-01 22:09:45,700 - src.core.trading_engine - INFO - Connected to IBKR successfully
+2025-08-01 22:09:46,281 - src.core.trading_engine - INFO - Account value: $100,000.00
+2025-08-01 22:09:46,283 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent, 30 daily
+2025-08-01 22:09:46,283 - src.core.trading_engine - INFO - Syncing positions with IBKR...
+2025-08-01 22:09:46,284 - src.core.position_tracker - WARNING - UNTRACKED POSITION: AAPL - 56.0 shares
+2025-08-01 22:09:46,285 - src.core.position_tracker - INFO - Position added: AAPL
+2025-08-01 22:09:46,285 - src.core.position_tracker - INFO - Exit scheduled for AAPL at 22:19:46
+2025-08-01 22:09:46,286 - src.core.trading_engine - INFO - Rescheduling exit for AAPL at 2025-08-01 22:19:46.285986
+2025-08-01 22:09:46,286 - src.core.position_tracker - INFO - Exit scheduled for AAPL at 22:19:46
+2025-08-01 22:09:46,288 - src.utils.csv_parser - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 22:09:46,300 - src.core.trading_engine - INFO - Time exit monitor started
+2025-08-01 22:09:46,301 - src.utils.csv_parser - INFO - Found 1 new alerts from alertlogging.Breaking out on Volume.20250801.csv
+2025-08-01 22:09:46,301 - src.core.trading_engine - INFO - All monitoring threads started
+2025-08-01 22:09:46,302 - __main__ - INFO - Trading engine started successfully
+2025-08-01 22:14:46,314 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 22:19:46,326 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 22:19:47,304 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 22:19:47,304 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 22:19:47,305 - src.core.order_manager - WARNING - No actual position found for AAPL, removing from tracking
+2025-08-01 22:19:47,305 - src.core.position_tracker - INFO - Position removed: AAPL
+2025-08-01 22:19:47,307 - src.core.ibkr_connector - INFO - Created contract for AAPL without qualification
+2025-08-01 22:19:52,315 - src.core.risk_manager - WARNING - No position found for AAPL
+2025-08-01 22:24:46,338 - src.core.trading_engine - INFO - Running position sync...
+2025-08-01 22:24:46,339 - src.core.position_tracker - WARNING - UNTRACKED POSITION: AAPL - 56.0 shares
+2025-08-01 22:24:46,340 - src.core.position_tracker - INFO - Position added: AAPL
+2025-08-01 22:24:46,340 - src.core.position_tracker - INFO - Exit scheduled for AAPL at 22:34:46
+2025-08-01 22:24:46,343 - src.core.trading_engine - WARNING - Found 1 position discrepancies
+2025-08-01 23:55:32,146 - src.core.trading_engine - INFO - Found 1 positions due for exit
+2025-08-01 23:55:32,146 - src.core.trading_engine - INFO - Executing time-based exit for AAPL
+2025-08-01 23:55:32,147 - src.core.order_manager - WARNING - No actual position found for AAPL, removing from tracking
+2025-08-01 23:55:32,147 - src.core.position_tracker - INFO - Position removed: AAPL
+2025-08-01 23:55:37,162 - src.core.risk_manager - WARNING - No position found for AAPL

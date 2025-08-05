@@ -1,0 +1,95 @@
+2025-08-05 13:08:52,280 - __main__ - INFO - ============================================================
+2025-08-05 13:08:52,280 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-05 13:08:52,280 - __main__ - INFO - ============================================================
+2025-08-05 13:08:52,280 - __main__ - INFO - Initializing IBKR connector...
+2025-08-05 13:08:52,280 - src.core.ibkr_connector - INFO - Connecting to IBKR...
+2025-08-05 13:08:55,637 - src.core.ibkr_connector - INFO - Connected with account: DU003
+2025-08-05 13:08:55,638 - __main__ - INFO - Getting account information...
+2025-08-05 13:08:55,639 - __main__ - INFO - Account value: $100,000.00
+2025-08-05 13:08:55,640 - __main__ - INFO - Initializing risk manager...
+2025-08-05 13:08:55,641 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent
+2025-08-05 13:08:55,641 - __main__ - INFO - Initializing order manager...
+2025-08-05 13:08:55,641 - __main__ - INFO - Initializing CSV parser...
+2025-08-05 13:08:55,644 - __main__ - INFO - CSV Parser initialized for strategy: Breaking out on Volume
+2025-08-05 13:08:55,645 - __main__ - INFO - Loaded 1 previously processed alerts
+2025-08-05 13:08:55,645 - __main__ - INFO - Processed alerts by date: {'2025-08-04': 2, 'total': 2}
+2025-08-05 13:08:55,645 - __main__ - INFO - All components initialized successfully
+2025-08-05 13:08:55,645 - __main__ - INFO - Starting trading system...
+2025-08-05 13:08:55,646 - __main__ - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250805.csv
+2025-08-05 13:09:05,746 - __main__ - INFO - Shutdown requested
+2025-08-05 13:09:05,747 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-05 13:09:06,749 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 13:09:06,749 - __main__ - INFO - No open positions to close
+2025-08-05 13:09:06,749 - __main__ - INFO - All positions successfully closed
+2025-08-05 13:09:06,757 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-05 13:09:06,757 - __main__ - INFO - Shutdown complete
+2025-08-05 13:09:30,365 - __main__ - INFO - ============================================================
+2025-08-05 13:09:30,365 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-05 13:09:30,365 - __main__ - INFO - ============================================================
+2025-08-05 13:09:30,365 - __main__ - INFO - Initializing IBKR connector...
+2025-08-05 13:09:30,365 - src.core.ibkr_connector - INFO - Connecting to IBKR...
+2025-08-05 13:09:33,491 - src.core.ibkr_connector - INFO - Connected with account: DU003
+2025-08-05 13:09:33,491 - __main__ - INFO - Getting account information...
+2025-08-05 13:09:33,492 - __main__ - INFO - Account value: $100,000.00
+2025-08-05 13:09:33,493 - __main__ - INFO - Initializing risk manager...
+2025-08-05 13:09:33,493 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent
+2025-08-05 13:09:33,493 - __main__ - INFO - Initializing order manager...
+2025-08-05 13:09:33,493 - __main__ - INFO - Initializing CSV parser...
+2025-08-05 13:09:33,494 - __main__ - INFO - CSV Parser initialized for strategy: Breaking out on Volume
+2025-08-05 13:09:33,495 - __main__ - INFO - Loaded 1 previously processed alerts
+2025-08-05 13:09:33,495 - __main__ - INFO - Processed alerts by date: {'2025-08-04': 2, 'total': 2}
+2025-08-05 13:09:33,495 - __main__ - INFO - All components initialized successfully
+2025-08-05 13:09:33,495 - __main__ - INFO - Starting trading system...
+2025-08-05 13:09:33,495 - __main__ - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250805.csv
+2025-08-05 13:09:33,514 - __main__ - INFO - Found 2 new alerts (skipped 2 already processed)
+2025-08-05 13:09:33,514 - src.core.risk_manager - INFO - Account value updated: $100,000.00
+2025-08-05 13:09:33,514 - src.core.risk_manager - INFO - Position size: $3000.00 (3.0% of $100000.0)
+2025-08-05 13:09:33,515 - src.core.risk_manager - INFO - Shares to buy: 14 at $214.2
+2025-08-05 13:09:33,515 - src.core.order_manager - INFO - Placing order: AAPL - 14 shares @ $214.2, stop @ $212.058
+2025-08-05 13:09:33,747 - src.core.ibkr_connector - INFO - Placing market order for AAPL: 14 shares
+2025-08-05 13:09:37,397 - src.core.ibkr_connector - ERROR - IB Error 202: Order Canceled - reason:No market data on major exchange for market order.
+2025-08-05 13:09:37,480 - src.core.ibkr_connector - ERROR - Market order rejected: Cancelled
+2025-08-05 13:09:37,480 - src.core.risk_manager - INFO - Account value updated: $100,000.00
+2025-08-05 13:09:37,480 - src.core.risk_manager - INFO - Position size: $3000.00 (3.0% of $100000.0)
+2025-08-05 13:09:37,480 - src.core.risk_manager - INFO - Shares to buy: 16 at $177.0
+2025-08-05 13:09:37,481 - src.core.order_manager - INFO - Placing order: NVDA - 16 shares @ $177.0, stop @ $175.23
+2025-08-05 13:09:37,709 - src.core.ibkr_connector - INFO - Placing market order for NVDA: 16 shares
+2025-08-05 13:09:41,472 - src.core.ibkr_connector - ERROR - IB Error 202: Order Canceled - reason:No market data on major exchange for market order.
+2025-08-05 13:09:41,550 - src.core.ibkr_connector - ERROR - Market order rejected: Cancelled
+2025-08-05 13:09:44,588 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 13:09:55,723 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 13:10:02,936 - __main__ - INFO - Shutdown requested
+2025-08-05 13:10:02,936 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-05 13:10:03,939 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 13:10:03,939 - __main__ - INFO - No open positions to close
+2025-08-05 13:10:03,939 - __main__ - INFO - All positions successfully closed
+2025-08-05 13:10:03,939 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-05 13:10:03,940 - __main__ - INFO - Shutdown complete
+2025-08-05 18:56:55,420 - __main__ - INFO - ============================================================
+2025-08-05 18:56:55,421 - __main__ - INFO - Holly AI to IBKR Bridge Starting
+2025-08-05 18:56:55,421 - __main__ - INFO - ============================================================
+2025-08-05 18:56:55,421 - __main__ - INFO - Initializing IBKR connector...
+2025-08-05 18:56:55,423 - src.core.ibkr_connector - INFO - Connecting to IBKR...
+2025-08-05 18:56:58,871 - src.core.ibkr_connector - INFO - Connected with account: DU013
+2025-08-05 18:56:58,871 - __main__ - INFO - Getting account information...
+2025-08-05 18:56:58,872 - __main__ - INFO - Account value: $100,000.00
+2025-08-05 18:56:58,872 - __main__ - INFO - Initializing risk manager...
+2025-08-05 18:56:58,873 - src.core.risk_manager - INFO - Risk Manager initialized: 3.0% positions, max 3 concurrent
+2025-08-05 18:56:58,873 - __main__ - INFO - Initializing order manager...
+2025-08-05 18:56:58,873 - __main__ - INFO - Initializing CSV parser...
+2025-08-05 18:56:58,876 - __main__ - INFO - CSV Parser initialized for strategy: Breaking out on Volume
+2025-08-05 18:56:58,877 - __main__ - INFO - Loaded 2 previously processed alerts
+2025-08-05 18:56:58,877 - __main__ - INFO - Processed alerts by date: {'2025-08-04': 2, '2025-08-05': 2, 'total': 4}
+2025-08-05 18:56:58,877 - __main__ - INFO - All components initialized successfully
+2025-08-05 18:56:58,877 - __main__ - INFO - Starting trading system...
+2025-08-05 18:56:58,878 - __main__ - INFO - Switching to new file: data/alerts/alertlogging.Breaking out on Volume.20250805.csv
+2025-08-05 18:57:09,997 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 18:57:21,125 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 18:57:32,268 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 18:57:32,856 - __main__ - INFO - Shutdown requested
+2025-08-05 18:57:32,856 - __main__ - INFO - Initiating graceful shutdown...
+2025-08-05 18:57:33,870 - src.core.ibkr_connector - INFO - Position data refreshed
+2025-08-05 18:57:33,870 - __main__ - INFO - No open positions to close
+2025-08-05 18:57:33,870 - __main__ - INFO - All positions successfully closed
+2025-08-05 18:57:33,874 - src.core.ibkr_connector - INFO - Disconnected from IBKR
+2025-08-05 18:57:33,874 - __main__ - INFO - Shutdown complete

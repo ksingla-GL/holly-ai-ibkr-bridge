@@ -1,50 +1,61 @@
 # Holly AI to IBKR Bridge
 
-Automated trading system that reads Holly AI alerts from CSV and executes trades through Interactive Brokers TWS API.
+Automated trading system that reads Holly AI breakout signals and executes trades through Interactive Brokers.
 
 ## Features
-- Real-time CSV alert monitoring
-- Automated order execution via IBKR TWS API
-- Paper trading mode
+
+- **Timezone-Aware**: Correctly handles Australian timezone for US market trading
+- **State Persistence**: Maintains state across restarts, preventing duplicate trades
+- **Position Sync**: Regularly syncs with IBKR to ensure position accuracy
+- **Time-Based Exits**: Automatically exits positions after 10 minutes
+- **Risk Management**: 3% position sizing, max 3 concurrent positions, 30 daily trades
 
 ## Setup
-1. Install Python 3.8 or higher
-2. Install dependencies: `pip install -r requirements.txt`
-3. Configure IBKR TWS:
-   - Enable API connections in File > Global Configuration > API > Settings
-   - Check "Enable ActiveX and Socket Clients"
-   - Uncheck "Read-Only API" button
-   - Set Socket port to 7497 (paper trading)
-4. Update `config/config.json` with your settings
-5. Change csv path in "alerts" in `config/config.json` to where your Holly AI alerts file is located
-6. Run: `python src/main.py` or use `run.bat` (Windows) / `run.sh` (Mac/Linux)
 
-## CSV Format
-The Holly AI CSV must have these columns:
-- TimeStamp
-- Symbol
-- Type
-- Description (containing "New High" triggers)
-- Price
-- Relative Volume
+1. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Project Structure
-- `src/core/`: Core trading logic and IBKR integration
-- `src/utils/`: Utility functions
-- `config/`: Configuration files
-- `data/`: Alert files and trade logs
+2. Configure TWS/IB Gateway:
+   - Enable API connections
+   - Set socket port to 7497 for paper trading
+   - Disable read-only API mode
 
-IMPORTANT: Trading Mode Configuration
+3. Edit `config/config.json`:
+   - Set your timezone
+   - Adjust risk parameters if needed
+   - Verify CSV path settings
 
-Paper Trading (SAFE):
-- Set port to 7497 in config.json
-- Uses virtual money
-- No real trades
+4. Run the system:
+   ```bash
+   python main.py
+   ```
 
-Live Trading (REAL MONEY):
-- Set port to 7496 in config.json  
-- Uses real money
-- Real trades executed
+## State Management
 
-The system will REFUSE to connect if port 7496 (live) is detected.
-To enable live trading, remove the safety check in ibkr_connector.py
+The system maintains state in `data/state/trading_state.json` which includes:
+- Processed alerts (prevents duplicates)
+- Open positions
+- Pending exits
+- Daily statistics
+
+This ensures the system can be safely restarted without:
+- Processing the same alerts multiple times
+- Losing track of open positions
+- Missing scheduled exits
+
+## Monitoring
+
+Check the logs in `logs/` directory for:
+- Trade execution details
+- Position sync results
+- Risk rule violations
+- System errors
+
+## Safety Features
+
+- Port 7496 (live trading) is blocked
+- Automatic position sync with IBKR
+- Graceful shutdown closes all positions
+- State backup prevents data loss
