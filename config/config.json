@@ -1,6 +1,6 @@
 {
     "system": {
-        "timezone": "Asia/Kolkata",
+        "timezone": "Australia/Sydney",
         "market_timezone": "US/Eastern",
         "market_hours": {
             "enabled": true,
