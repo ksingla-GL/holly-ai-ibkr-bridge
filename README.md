@@ -4,7 +4,7 @@ Automated trading system that reads Holly AI breakout signals and executes trade
 
 ## Features
 
-- **Timezone-Aware**: Correctly handles Australian timezone for US market trading
+- **Timezone-Aware**: Uses your configured local timezone while trading US markets
 - **State Persistence**: Maintains state across restarts, preventing duplicate trades
 - **Position Sync**: Regularly syncs with IBKR to ensure position accuracy
 - **Time-Based Exits**: Automatically exits positions after 10 minutes
@@ -23,9 +23,10 @@ Automated trading system that reads Holly AI breakout signals and executes trade
    - Disable read-only API mode
 
 3. Edit `config/config.json`:
-   - Set your timezone
+   - Set `system.timezone` to your local timezone (e.g. `Australia/Sydney`)
+   - Keep `system.market_timezone` as `US/Eastern` for U.S. market hours
+   - Verify `alerts.csv_path` points to the folder where Holly AI drops CSVs
    - Adjust risk parameters if needed
-   - Verify CSV path settings
 
 4. Run the system:
    ```bash
