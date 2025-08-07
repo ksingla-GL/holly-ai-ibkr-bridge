@@ -53,6 +53,21 @@ class OrderManager:
         except Exception as e:
             self.logger.error(f"Error placing order for {symbol}: {e}")
             return None
+
+    def schedule_time_exit(self, symbol: str, shares: int, entry_price: float):
+        """Schedule a time-based exit for an existing position"""
+        exit_time = datetime.now() + timedelta(
+            minutes=self.config['risk_management']['time_exit_minutes']
+        )
+        self.pending_exits[symbol] = {
+            'exit_time': exit_time,
+            'shares': shares,
+            'entry_price': entry_price,
+            'order_id': None
+        }
+        self.logger.info(
+            f"Scheduled time exit for {symbol} at {exit_time.strftime('%H:%M:%S')}"
+        )
     
     def check_time_exits(self) -> list:
         """Check for positions that need time-based exit"""

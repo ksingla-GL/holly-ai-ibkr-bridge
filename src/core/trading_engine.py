@@ -103,13 +103,15 @@ class TradingEngine:
             self.logger.info(f"Account value: ${account_value:,.2f}")
             
             # Initialize managers
-            self.risk_manager = RiskManager(self.config, self.state_manager, account_value)
+            self.risk_manager = RiskManager(self.config, account_value)
             self.position_tracker = PositionTracker(self.ibkr, self.state_manager)
             self.order_manager = OrderManager(self.ibkr, self.config, self.position_tracker)
-            
+
             # Sync positions with IBKR
             self.logger.info("Syncing positions with IBKR...")
+            self.ibkr.refresh_positions()
             self.position_tracker.sync_positions()
+            self.risk_manager.sync_with_ibkr(self.ibkr.get_positions())
             
             # Recover any pending time exits
             self._recover_pending_exits()
@@ -304,8 +306,11 @@ class TradingEngine:
                 
                 if self.connected and self.position_tracker:
                     self.logger.info("Running position sync...")
+                    self.ibkr.refresh_positions()
                     discrepancies = self.position_tracker.sync_positions()
-                    
+                    if self.risk_manager:
+                        self.risk_manager.sync_with_ibkr(self.ibkr.get_positions())
+
                     if discrepancies:
                         self.logger.warning(f"Found {len(discrepancies)} position discrepancies")
                         

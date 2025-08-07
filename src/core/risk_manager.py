@@ -139,6 +139,50 @@ class RiskManager:
             f"Added position: {symbol} - {shares} shares @ ${entry_price}, exit at {exit_time.strftime('%H:%M:%S')}"
         )
         self._save_state()
+
+    def track_existing_position(self, symbol: str, entry_price: float, shares: int):
+        """Track an existing position without counting as new trade"""
+        entry_time = datetime.now()
+        exit_time = entry_time + timedelta(minutes=self.time_exit_minutes)
+        self.current_positions[symbol] = {
+            'entry_time': entry_time,
+            'exit_time': exit_time,
+            'entry_price': entry_price,
+            'shares': shares,
+            'order_id': None,
+            'stop_price': entry_price * (1 - self.stop_loss_pct / 100)
+        }
+        self.logger.info(
+            f"Tracking existing position: {symbol} - {shares} shares @ ${entry_price}, exit at {exit_time.strftime('%H:%M:%S')}"
+        )
+        self._save_state()
+
+    def sync_with_ibkr(self, ibkr_positions):
+        """Reconcile tracked positions with actual IBKR positions"""
+        try:
+            ibkr_map = {
+                pos.contract.symbol: pos
+                for pos in ibkr_positions
+                if getattr(pos, 'position', 0) != 0
+            }
+        except Exception as e:
+            self.logger.warning(f"Could not parse IBKR positions: {e}")
+            return
+
+        # Remove positions not present in IBKR
+        for symbol in list(self.current_positions.keys()):
+            if symbol not in ibkr_map:
+                self.logger.info(f"Removing stale position from risk manager: {symbol}")
+                del self.current_positions[symbol]
+
+        # Track any IBKR positions not currently tracked
+        for symbol, pos in ibkr_map.items():
+            if symbol not in self.current_positions:
+                shares = abs(int(getattr(pos, 'position', 0)))
+                entry_price = float(getattr(pos, 'avgCost', 0) or 0)
+                self.track_existing_position(symbol, entry_price, shares)
+
+        self._save_state()
     
     def check_exits(self) -> List[str]:
         """Check for positions that need to exit (time-based)"""

@@ -178,21 +178,23 @@ class HollyAlertParser:
             
             # Read CSV with proper parsing
             df = pd.read_csv(csv_path)
-            
-        # Filter new alerts
-        new_alerts = []
-        for idx, row in df.iterrows():
-            alert_id = f"{row[self.columns['timestamp']]}_{row[self.columns['symbol']]}"
 
-            if not self._is_alert_processed(alert_id):
-                alert = self._process_alert(row)
-                if alert:
-                    new_alerts.append(alert)
-                    self._mark_alert_processed(alert_id)
-            
+            # Filter new alerts
+            new_alerts = []
+            for idx, row in df.iterrows():
+                alert_id = f"{row[self.columns['timestamp']]}_{row[self.columns['symbol']]}"
+
+                if not self._is_alert_processed(alert_id):
+                    alert = self._process_alert(row)
+                    if alert:
+                        new_alerts.append(alert)
+                        self._mark_alert_processed(alert_id)
+
             if new_alerts:
-                self.logger.info(f"Found {len(new_alerts)} new alerts from {os.path.basename(csv_path)}")
-                
+                self.logger.info(
+                    f"Found {len(new_alerts)} new alerts from {os.path.basename(csv_path)}"
+                )
+
             return new_alerts
             
         except Exception as e:

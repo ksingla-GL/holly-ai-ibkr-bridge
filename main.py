@@ -65,7 +65,21 @@ class TradingSystem:
             stats = self.parser.get_processed_alerts_stats()
             if stats['total'] > 0:
                 self.logger.info(f"Processed alerts by date: {stats}")
-            
+
+            # Detect and schedule exits for any existing open positions
+            self.logger.info("Checking for existing open positions...")
+            self.ib_connector.refresh_positions()
+            for pos in self.ib_connector.get_positions():
+                if pos.position != 0:
+                    symbol = pos.contract.symbol
+                    shares = abs(int(pos.position))
+                    entry_price = getattr(pos, 'avgCost', 0)
+                    self.order_manager.schedule_time_exit(symbol, shares, entry_price)
+                    self.risk_manager.track_existing_position(symbol, entry_price, shares)
+                    self.logger.info(
+                        f"Detected open position: {symbol} - {shares} shares"
+                    )
+
             self.logger.info("All components initialized successfully")
             return True
             
