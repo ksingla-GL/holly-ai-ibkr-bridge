@@ -194,8 +194,8 @@ class IBKRConnector:
             logger.error(traceback.format_exc())
             return None
     
-    def close_position(self, symbol: str, quantity: int) -> bool:
-        """Close position with market order - IMPROVED POSITION DETECTION"""
+    def close_position(self, symbol: str, quantity: int) -> Optional[float]:
+        """Close position with market order and return fill price if successful."""
         try:
             # First, let's refresh positions to make sure we have latest data
             self.ib.reqPositions()
@@ -223,8 +223,8 @@ class IBKRConnector:
                 for order in orders:
                     if hasattr(order, 'contract') and order.contract.symbol == symbol:
                         logger.info(f"Found order for {symbol}: {order.orderStatus.status}")
-                
-                return False
+
+                return None
             
             # Cancel any existing orders for this symbol first
             self._cancel_orders_for_symbol(symbol)
@@ -233,7 +233,7 @@ class IBKRConnector:
             # Get contract
             contract = self._get_contract(symbol)
             if not contract:
-                return False
+                return None
             
             # Place market sell order
             order = MarketOrder('SELL', actual_quantity)
@@ -249,19 +249,19 @@ class IBKRConnector:
                 if trade.orderStatus.status == 'Filled':
                     fill_price = trade.orderStatus.avgFillPrice or 0
                     logger.info(f"Position closed: {symbol} at ${fill_price}")
-                    return True
+                    return fill_price
                 elif trade.orderStatus.status in ['Cancelled', 'Rejected']:
                     logger.error(f"Close order failed: {trade.orderStatus.status}")
-                    return False
-            
+                    return None
+
             logger.warning(f"Close order timeout for {symbol}, status: {trade.orderStatus.status}")
-            return False
-            
+            return None
+
         except Exception as e:
             logger.error(f"Error closing position for {symbol}: {e}")
             import traceback
             logger.error(traceback.format_exc())
-            return False
+            return None
     
     def _get_contract(self, symbol: str):
         """Get contract for symbol"""

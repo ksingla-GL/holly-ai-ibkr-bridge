@@ -48,11 +48,13 @@ This ensures the system can be safely restarted without:
 
 ## Monitoring
 
-Check the logs in `logs/` directory for:
-- Trade execution details
+Check the logs in the `logs/Text_Logs` directory for runtime details such as:
+- Trade execution messages
 - Position sync results
 - Risk rule violations
 - System errors
+
+Daily trade summaries are written to CSV files in `logs/Trade_Logs`.
 
 ## Safety Features
 

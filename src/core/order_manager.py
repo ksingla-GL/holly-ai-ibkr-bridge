@@ -8,6 +8,8 @@ from datetime import datetime, timedelta
 from typing import Dict, Optional
 import time
 
+from src.utils.logger import log_trade
+
 class OrderManager:
     def __init__(self, ib_connector, config: dict):
         """
@@ -32,20 +34,36 @@ class OrderManager:
             trade = self.ib_connector.place_market_order_with_stop(
                 symbol=symbol,
                 quantity=shares,
-                stop_price=round(stop_price, 2)
+                stop_price=round(stop_price, 2),
             )
-            
+
             if trade:
+                # Log the trade
+                fill_price = getattr(trade.orderStatus, "avgFillPrice", entry_price) or entry_price
+                log_trade(
+                    {
+                        "timestamp": datetime.now().isoformat(),
+                        "symbol": symbol,
+                        "action": "BUY",
+                        "shares": shares,
+                        "price": fill_price,
+                    }
+                )
+
                 # Schedule time exit
-                exit_time = datetime.now() + timedelta(minutes=self.config['risk_management']['time_exit_minutes'])
+                exit_time = datetime.now() + timedelta(
+                    minutes=self.config["risk_management"]["time_exit_minutes"]
+                )
                 self.pending_exits[symbol] = {
-                    'exit_time': exit_time,
-                    'shares': shares,
-                    'entry_price': entry_price,
-                    'order_id': trade.order.orderId
+                    "exit_time": exit_time,
+                    "shares": shares,
+                    "entry_price": entry_price,
+                    "order_id": trade.order.orderId,
                 }
-                
-                self.logger.info(f"Order placed successfully: {symbol}, exit scheduled for {exit_time.strftime('%H:%M:%S')}")
+
+                self.logger.info(
+                    f"Order placed successfully: {symbol}, exit scheduled for {exit_time.strftime('%H:%M:%S')}"
+                )
                 return trade.order.orderId
             
             return None
@@ -94,15 +112,26 @@ class OrderManager:
             self.logger.info(f"Checking IBKR for {symbol} position...")
             
             # Use the improved close_position method which will find actual quantities
-            success = self.ib_connector.close_position(symbol, exit_data['shares'])
-            
-            if success:
+            fill_price = self.ib_connector.close_position(symbol, exit_data["shares"])
+
+            if fill_price is not None:
                 self.logger.info(f"Time exit executed successfully for {symbol}")
+                log_trade(
+                    {
+                        "timestamp": datetime.now().isoformat(),
+                        "symbol": symbol,
+                        "action": "SELL",
+                        "shares": exit_data["shares"],
+                        "price": fill_price,
+                    }
+                )
                 del self.pending_exits[symbol]
                 return True
             else:
                 # If close failed, it might mean position was already closed by stop loss
-                self.logger.info(f"Position close failed for {symbol} - may have been closed by stop loss")
+                self.logger.info(
+                    f"Position close failed for {symbol} - may have been closed by stop loss"
+                )
                 # Still remove from pending exits since we tried
                 del self.pending_exits[symbol]
                 return False
