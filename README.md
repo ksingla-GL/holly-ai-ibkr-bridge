@@ -9,6 +9,7 @@ Automated trading system that reads Holly AI breakout signals and executes trade
 - **Position Sync**: Regularly syncs with IBKR to ensure position accuracy
 - **Time-Based Exits**: Automatically exits positions after 10 minutes
 - **Risk Management**: 3% position sizing, max 3 concurrent positions, 30 daily trades
+- **Real-time Dashboard**: Streamlit-based monitoring interface for trades and performance
 
 ## Setup
 
@@ -33,6 +34,22 @@ Automated trading system that reads Holly AI breakout signals and executes trade
    python main.py
    ```
 
+## Dashboard Monitoring
+
+Launch the real-time monitoring dashboard to track trades and performance:
+
+```bash
+python run_dashboard.py
+```
+
+The dashboard provides:
+- **Active Trades**: Current open positions and recent activity
+- **Trade History**: Performance metrics, P&L charts, and trade analysis
+- **Risk Parameters**: Current risk settings and usage monitoring
+- **System Status**: File status checks and alert processing statistics
+
+Access the dashboard at `http://localhost:8501` after starting.
+
 ## State Management
 
 The system maintains state in `data/state/trading_state.json` which includes:
@@ -48,6 +65,13 @@ This ensures the system can be safely restarted without:
 
 ## Monitoring
 
+### Dashboard (Recommended)
+Use the Streamlit dashboard for real-time monitoring:
+```bash
+python run_dashboard.py
+```
+
+### Log Files
 Check the logs in the `logs/Text_Logs` directory for runtime details such as:
 - Trade execution messages
 - Position sync results
